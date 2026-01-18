@@ -1,20 +1,20 @@
-'use ctrict';
+"use ctrict";
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
   captionDelay: 250,
 });
 
-const gallery = document.querySelector('.gallery');
-const loader = document.querySelector('.loader');
+const gallery = document.querySelector(".gallery");
+const loader = document.querySelector(".loader");
 
-const buttonShowMore = document.querySelector('.button-load-more');
+const buttonShowMore = document.querySelector(".button-load-more");
 export async function createGallery(images) {
   const markup = await images
-    .map(item => {
+    .map((item) => {
       const {
         downloads,
         webformatURL,
@@ -54,29 +54,29 @@ export async function createGallery(images) {
         </ul>
       </li>`;
     })
-    .join('');
+    .join("");
 
-  gallery.insertAdjacentHTML('beforeend', markup);
+  gallery.insertAdjacentHTML("beforeend", markup);
 
   lightbox.refresh();
 }
 
-export async function clearGallery() {
-  gallery.innerHTML = '';
+export function clearGallery() {
+  gallery.innerHTML = "";
 }
 
-export async function showLoader() {
-  loader.classList.remove('hidden');
+export function showLoader() {
+  loader.classList.remove("hidden");
 }
 
-export async function hideLoader() {
-  loader.classList.add('hidden');
+export function hideLoader() {
+  loader.classList.add("hidden");
 }
 
-export async function showLoadMoreButton() {
-  buttonShowMore.classList.remove('hidden');
+export function showLoadMoreButton() {
+  buttonShowMore.classList.remove("hidden");
 }
 
 export function hideLoadMoreButton() {
-  buttonShowMore.classList.add('hidden');
+  buttonShowMore.classList.add("hidden");
 }
